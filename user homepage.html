@@ -36,16 +36,24 @@
         </div>
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <form id="contactForm-1" name="sentMessage" novalidate="novalidate">
+                <form id="contactForm-1" name="sentMessage" novalidate="novalidate" method="POST">
                     <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Name</label><input class="form-control" type="text" id="name-1" required="" placeholder="Name"><small class="form-text text-danger help-block"></small></div>
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label></label>
+                            <input class="form-control" type="text" id="name-1" required="" placeholder="Title" name="title">
+                            <small class="form-text text-danger help-block"></small>
+                        </div>
                         <div class="form-group floating-label-form-group controls mb-0 pb-2"
-                            style="padding: 0px 0px 8px;"><input class="form-control" type="text" id="name-2" required="" placeholder="Name"><small class="form-text text-danger help-block"></small></div>
+                            style="padding: 0px 0px 8px;">
+                            <input class="form-control" type="text" id="name-2" required="" placeholder="Department" name="department">
+                            <small class="form-text text-danger help-block"></small></div>
                     </div>
                     <div class="control-group"></div>
                     <div class="control-group"></div>
                     <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-5 pb-2"><textarea class="form-control" id="message-1" required="" placeholder="Message" rows="5"></textarea><small class="form-text text-danger help-block"></small></div>
+                        <div class="form-group floating-label-form-group controls mb-5 pb-2">
+                            <textarea class="form-control" id="message-1" required="" placeholder="Complaint" name="complaint" rows="5"></textarea>
+                            <small class="form-text text-danger help-block"></small></div>
                     </div>
                     <div id="success-1"></div>
                     <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton-1" type="submit">Send</button></div>
