@@ -1,4 +1,8 @@
 <?php
+if(isset($_GET['error'])){
+  echo ' <script> alert("'.$_GET['error'].'");</scrip>';
+}
+
 include 'connecttoDB.php';
 
 ?>
@@ -49,10 +53,17 @@ include 'connecttoDB.php';
             <div class="form-group">
               <label for="password">Password</label>
               <input  type="password" class="form-control" placeholder="Please Enter Your Password" name='password' required>
-          
+              <div>
+              <input type="radio" name="radio" value='User' style="margin-right: 10px;" checked> User
+              <input type="radio" name="radio" value="Admin" style="margin-right: 10px;" > Admin
+          </div>
+
+
+            </div>
             <div class="form-group">
-			
               <button type="submit" value='submit' class="btn btn-primary btn-block" > Login  </button>
+              </form>
+
             </div> <!-- form-group// -->
           </post>
         </article> <!-- card-body end .// -->
