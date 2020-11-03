@@ -9,7 +9,7 @@
         $count = mysqli_num_rows($result);  
           
         if($count == 1){  
-            header('location:index.html');  
+            header('location:user homepage.html');  
         }  
         else{  
            echo '<script>alert("Wrong Email or Password")</script>';
