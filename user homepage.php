@@ -1,3 +1,9 @@
+<?php
+session_start();
+if ( (!isset($_SESSION['email']))) {
+  header("Location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -68,6 +74,7 @@
                     <div id="success-1"></div>
                     <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton-1"
                             type="submit">Send</button></div>
+                            <?php echo " <input name='email' type= 'hidden' value='".$_SESSION['email']."' > "; ?>
                 </form>
             </div>
         </div>
