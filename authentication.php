@@ -18,7 +18,7 @@
              
             header('location:user homepage.php');  
         } if($type == Admin){
-            header('location:admin home page.html');  
+            header('location:admin home page.php');  
         }
 
         }  
