@@ -1,10 +1,16 @@
+<?php
+session_start();
+if ( (!isset($_SESSION['email']))) {
+  header("Location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
+    <title>User home page</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
@@ -68,6 +74,7 @@
                     <div id="success-1"></div>
                     <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton-1"
                             type="submit">Send</button></div>
+                            <?php echo " <input name='email' type= 'hidden' value='".$_SESSION['email']."' > "; ?>
                 </form>
             </div>
         </div>
