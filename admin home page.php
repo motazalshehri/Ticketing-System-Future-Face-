@@ -13,8 +13,7 @@
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
-        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">future face</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">future face</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"></li>
@@ -30,21 +29,25 @@
             <h2 class="font-weight-light mb-0"></h2>
         </div>
     </header>
-    <?php
-    include 'connecttoDB.php';
-$result = mysqli_query($conn,"SELECT * FROM tickets");
-
-while($row = mysqli_fetch_array($result)){
-
-echo'
-
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="text-uppercase text-center text-secondary">complaints</h2>
         </div>
-        <div style="background: #000000;height: 550px;width: 350px;margin: 50px 100px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">'.$row['title'].'</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px 0px;text-align: center;padding-bottom: 75px;font-size: 30px;background: #454545;padding-top: 75px;">'.$row['complaint'].'</h2>
+
+        <?php
+        include 'connecttoDB.php';
+        $result = mysqli_query($conn, "SELECT * FROM tickets");
+
+
+        while ($row = mysqli_fetch_array($result)) {
+
+            echo '
+
+  
+        <div style=" float:left; background: #000000;height: 550px;width: 350px;margin: 50px 100px;padding: 30px 0px;border-radius: 50px;">
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#'.$row['num'].' - '.$row['title'].'</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px 0px;text-align: center;padding-bottom: 75px;font-size: 30px;background: #454545;padding-top: 75px;">' . $row['complaint'] . '</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 30px;">'.$row['email'].'</h2>
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 30px;">transfer to</h2>
             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="text-align: center;margin: 10px 50px;width: 250px;font-size: 20px;">select department&nbsp;</button>
                 <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
@@ -52,7 +55,12 @@ echo'
             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width: 250px;margin: 10px 50px;font-size: 20px;">select member&nbsp;</button>
                 <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
             </div><button class="btn btn-primary" type="button" style="margin: 10px 145px;height: 46px;">Send</button></div>
+            ';
+        }
+
+        ?>
     </section>
+
     <section id="about" class="bg-primary text-white mb-0">
         <div class="container">
             <h2 class="text-uppercase text-center text-white">REDIRECTED complaints</h2>
@@ -67,13 +75,11 @@ echo'
             </div>
             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width: 250px;margin: 10px 50px;font-size: 20px;">select member&nbsp;</button>
                 <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-            </div><button class="btn btn-primary" type="button" style="margin: 10px 145px;height: 46px;">Send</button></div>
+            </div><button class="btn btn-primary" type="button" style="margin: 10px 145px;height: 46px;">Send</button>
+        </div>
     </section>
-    
-    ';
-}
 
-?>
+
     <footer class="footer text-center"></footer>
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright ©&nbsp;future face 2020</small></div>

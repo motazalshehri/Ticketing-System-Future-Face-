@@ -14,10 +14,10 @@
         $_SESSION['email']= $email; 
 
         if($count == 1){  
-        if($type == User){
+        if($type == "User"){
              
             header('location:user homepage.php');  
-        } if($type == Admin){
+        } if($type == "Admin"){
             header('location:admin home page.php');  
         }
 
