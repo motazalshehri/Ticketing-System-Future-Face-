@@ -32,6 +32,8 @@ if ( (!isset($_SESSION['email']))) {
                             href="#about">my complaints</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                             href="#contact">Complaints to me</a></li>
+                            <li class="nav-item mx-0 mx-lg-0" ><a href="logout.php"><button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a></li>
+
                 </ul>
             </div>
         </div>
