@@ -54,8 +54,6 @@ include 'connecttoDB.php';
               <label for="password">Password</label>
               <input  type="password" class="form-control" placeholder="Please Enter Your Password" name='password' required>
               <div>
-              <input type="radio" name="radio" value='User' style="margin-right: 10px;" checked> User
-              <input type="radio" name="radio" value="Admin" style="margin-right: 10px;" > Admin
           </div>
 
 

@@ -4,20 +4,24 @@
     include('connecttoDB.php');  
     $email = $_POST['email'];  
     $password = $_POST['password'];  
-    $type = $_POST['radio'];
 
-        $sql = "select * from User where email = '$email' and password = '$password' and type = '$type' ";  
+        $sql = "select * from User where email = '$email' and password = '$password' ";  
         $result = mysqli_query($conn, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result);  
 
-        $_SESSION['email']= $email; 
+        $type = $row['type'];
 
         if($count == 1){  
         if($type == "User"){
-             
+
+            $_SESSION['email']= $email; 
+
             header('location:user homepage.php');  
         } if($type == "Admin"){
+
+            $_SESSION['email']= $email; 
+
             header('location:admin home page.php');  
         }
 
