@@ -85,17 +85,26 @@ if ( (!isset($_SESSION['email']))) {
         <div class="container">
             <h2 class="text-uppercase text-center text-white">my complaints</h2>
         </div>
-        <div
-            style="background: #000000;height: 350px;width: 350px;margin: 50px 100px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white"
-                style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">title</h2>
-            <h2 class="text-uppercase text-center text-white"
-                style="margin: 0px;padding: 0px 0px;text-align: center;padding-bottom: 75px;font-size: 30px;background: #454545;padding-top: 75px;">
-                Complaint</h2>
-            <h2 class="text-uppercase text-center text-white"
-                style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 30px;">
-                state</h2>
-        </div>
+       
+        <?php
+        include 'connecttoDB.php';
+        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE email = '".$_SESSION['email']."' ");
+
+
+        while ($row = mysqli_fetch_array($result)) {
+
+            echo '
+
+  
+        <div style=" float:left; background: #000000;height: auto;width: 350px;margin: 50px 100px;padding: 30px 0px;border-radius: 50px;">
+            <h2 class=" text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . ' - ' . $row['title'] . '</h2>
+            <h2 class=" text-center text-white" style="margin: 0px;padding: 0px 0px;text-align: center;padding-bottom: 75px;font-size: 30px;background: #454545;padding-top: 75px;">' . $row['complaint'] . '</h2>
+            <h5 class=" text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 20px;"> Status : '  . $row['status'] . '</h5>
+            </div>
+            ';
+        }
+
+        ?>
     </section>
     <section id="contact">
         <div class="container">
