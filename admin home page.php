@@ -48,17 +48,41 @@
             echo '
 
   
-        <div style=" float:left; background: #000000;height: auto;width: 350px;margin: 50px 100px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . ' - ' . $row['title'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px 0px;text-align: center;padding-bottom: 75px;font-size: 30px;background: #454545;padding-top: 75px;">' . $row['complaint'] . '</h2>
-            <h5 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 20px;">' . $row['email'] . '</h5>
+        <div data-ride="carousel" style=" float:left; background: #000000;height: 600px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
+            <button style="margin: 10px 145px;height: 46px; type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">View</button>
+            
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">#' . $row['num'] . ' - ' . $row['title'] . '</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>' . $row['complaint'] . '</p>
+                  </div>
+                  <div class="modal-footer" >
+                  <h5 style="float:left;" class="modal-title" id="exampleModalLabel">sent by: ' . $row['email'] . '</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 30px;">transfer to</h2>
             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="text-align: center;margin: 10px 50px;width: 250px;font-size: 20px;">select department&nbsp;</button>
                 <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
             </div>
             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width: 250px;margin: 10px 50px;font-size: 20px;">select member&nbsp;</button>
                 <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-            </div><button class="btn btn-primary" type="button" style="margin: 10px 145px;height: 46px;">Send</button></div>
+            </div>
+
+            <button class="btn btn-primary" type="button" style="margin: 10px 145px;height: 46px;">Send</button>
+
+        </div>
+
             ';
         }
 
