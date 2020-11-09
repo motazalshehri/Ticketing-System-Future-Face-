@@ -19,13 +19,13 @@
     <hr>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
-< <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
         <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">future face</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">complaints</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">redirected Complaints</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Tickets</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">redirected tickets</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " href="registerpage.php">Register an account</a></li>
                     <li class="nav-item mx-0 mx-lg-0" ><a href="logout.php"><button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a></li>
 
@@ -56,7 +56,7 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 		 </div>
-        <input name="email" class="form-control" placeholder="Email address" type="email">
+        <input name="email" class="form-control" placeholder="Email address" type="email" required>
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     
@@ -66,7 +66,7 @@
 		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
 		</div>
 		<select name="department" class="form-control">
-			<option selected=""> Select Department</option>
+			<option selected="" hidden >Select Department</option>
 			<option>Designer</option>
 			<option>Manager</option>
 			<option>Accaunting</option>
@@ -76,13 +76,13 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input name="password" class="form-control" placeholder="Create password" type="password">
+        <input name="password" class="form-control" placeholder="Create password" type="password" required>
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="Repeat password" type="password">
+        <input class="form-control" placeholder="Repeat password" type="password" required >
     </div> <!-- form-group// -->                                      
    
     <div class="form-check form-check-inline">
