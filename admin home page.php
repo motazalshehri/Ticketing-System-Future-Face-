@@ -1,7 +1,7 @@
 <?php
 session_start();
-if ( (!isset($_SESSION['email']))) {
-  header("Location:login.php");
+if ((!isset($_SESSION['email']))) {
+    header("Location:login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -15,6 +15,7 @@ if ( (!isset($_SESSION['email']))) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="orange.css">
 </head>
 
 <body id="page-top">
@@ -23,10 +24,10 @@ if ( (!isset($_SESSION['email']))) {
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Tickets</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">redirected tickets</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Tickets</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">redirected tickets</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " href="registerpage.php">Register an account</a></li>
-                    <li class="nav-item mx-0 mx-lg-0" ><a href="logout.php"><button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a></li>
+                    <li class="nav-item mx-0 mx-lg-0"><a href="logout.php"><button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a></li>
 
                 </ul>
             </div>
@@ -58,9 +59,9 @@ if ( (!isset($_SESSION['email']))) {
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
             ';
-            $_SESSION['title']= $row['title']; 
+            $_SESSION['title'] = $row['title'];
 
-            $cardResult = mysqli_query($conn, "SELECT * FROM tickets WHERE title = '".$_SESSION['title']."' ");
+            $cardResult = mysqli_query($conn, "SELECT * FROM tickets WHERE title = '" . $_SESSION['title'] . "' ");
             $cardRow = mysqli_fetch_array($cardResult);
             echo '
             <button style="margin: 10px 145px;height: 46px; type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">View</button>
