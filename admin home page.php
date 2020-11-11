@@ -16,6 +16,19 @@ if ((!isset($_SESSION['email']))) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="orange.css">
+<style>
+    section.scroll {
+       
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 0;
+  overflow-x: scroll;
+  display: flex;
+   
+    }
+
+</style>
+
 </head>
 
 <body id="page-top">
@@ -39,12 +52,12 @@ if ((!isset($_SESSION['email']))) {
             <h2 class="font-weight-light mb-0"></h2>
         </div>
     </header>
-
-    <section id="portfolio" class="portfolio" style="height:1000px">
-        <div class="container">
-            <h2 class="text-uppercase text-center text-secondary">tickets</h2>
+    <div class="container">
+            <h1 class="text-uppercase text-center text-secondary" >tickets</h1>
         </div>
 
+    <section class="scroll" id="portfolio" class="portfolio" style="height:1000px">
+        
         <?php
         include 'connecttoDB.php';
         $result = mysqli_query($conn, "SELECT * FROM tickets");
@@ -54,8 +67,8 @@ if ((!isset($_SESSION['email']))) {
 
             echo '
 
-  
-        <div data-ride="carousel" style=" float:left; background: #000000;height: 600px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
+  <div >
+        <div scrollmenu  data-ride="carousel" style=" float:left; background: #000000;height: 600px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
             ';
@@ -95,11 +108,12 @@ if ((!isset($_SESSION['email']))) {
             <button class="btn btn-primary" type="button" style="margin: 10px 145px;height: 46px;">Send</button>
 
         </div>
-
+</div>
             ';
         }
 
         ?>
+    
     </section>
 
     <section id="about" class="bg-primary text-white mb-0">
