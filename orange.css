@@ -1,52 +1,68 @@
+/* old orange FB8945 */
+
+.bg-secondary {
+    background-color: #343432!important;
+  }
+
+.footer {
+    background-color: #343432;
+} 
+    
 .bg-primary {
-    background-color: #FB8945 !important;
+    background-color: #f09329 !important;
 }
 
+a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover {
+    background-color: #f09329!important;
+  }
+  
+  
+
 a:active, a:focus, a:hover {
-    color: #FB8945;
+    color: #f09329;
   }
   
 
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-    color: #FB8945;
+    color: #f09329;
 }
 
 a:active,
 a:focus,
 a:hover {
-    color: #FB8945;
+    color: #f09329;
 }
 
 a:hover {
-    color: #FB8945;
+    color: #f09329;
 }
 
 a {
-    color: #FB8945;
+    color: #f09329;
 }
 
 .btn-primary {
-    background-color: #FB8945;
-    border-color: #FB8945;
+    background-color: #f09329;
+    border-color: #f09329;
 }
 
 .btn-primary.focus,
 .btn-primary:focus,
 .btn-primary:hover { 
-    background-color: #FB8945;
-    border-color: #FB8945;
+    background-color: #f09329;
+    border-color: #f09329;
 }
 
 .btn-primary:active,
 .btn-primary:focus,
 .btn-primary:hover {
-    background-color: #FB8945;
-    border-color: #FB8945;
+    background-color: #f09329;
+    border-color: #f09329;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active,
 .btn-primary:not(:disabled):not(.disabled):active,
 .show>.btn-primary.dropdown-toggle {
-    background-color: #FB8945;
-    border-color: #FB8945;
+    background-color: #f09329;
+    border-color: #f09329;
 }
