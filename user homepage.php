@@ -16,11 +16,25 @@ if ( (!isset($_SESSION['name']))) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="orange.css">
+
+    <style>
+    section.scroll {
+       
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 0;
+  overflow-x: scroll;
+  display: flex;
+   
+    }
+
+</style>
 </head>
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
-        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">future face</a><button
+    <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="ff.png" alt="Future Face" style="height: 75px; width:150px;"></a>
+        <button
                 data-toggle="collapse" data-target="#navbarResponsive"
                 class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i
@@ -56,7 +70,7 @@ if ( (!isset($_SESSION['name']))) {
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label></label>
                             <input class="form-control" type="text" id="name-1" required="" placeholder="Title"
-                                name="title">
+                                name="title" maxlength="30">
                             <small class="form-text text-danger help-block"></small>
                         </div>
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -82,6 +96,8 @@ if ( (!isset($_SESSION['name']))) {
             </div>
         </div>
     </section>
+    <h1 class="text-uppercase text-center text-secondary">my tickets</h1>
+
     <section id="about" class="bg-primary text-white mb-0" style="height:600px">
         <div class="container">
             <h2 class="text-uppercase text-center text-white">my tickets</h2>
@@ -146,14 +162,19 @@ if ( (!isset($_SESSION['name']))) {
         ?>
         <div></div>
     </section>
+
+
+    
     <footer class="footer text-center"></footer>
     <div class="copyright py-4 text-center text-white">
-        <div class="container"><small>Copyright ©&nbsp;future face 2020</small></div>
+        <div class="container"><small>Copyright ©️&nbsp;future face 2020</small></div>
     </div>
     <div class="d-lg-none scroll-to-top position-fixed rounded"><a
             class="d-block js-scroll-trigger text-center text-white rounded" href="#page-top"><i
                 class="fa fa-chevron-up"></i></a></div>
     </div>
+    
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
