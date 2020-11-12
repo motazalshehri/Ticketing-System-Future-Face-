@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ( (!isset($_SESSION['email']))) {
+if ( (!isset($_SESSION['name']))) {
   header("Location:login.php");
 }
 ?>
@@ -77,7 +77,7 @@ if ( (!isset($_SESSION['email']))) {
                     <div id="success-1"></div>
                     <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton-1"
                             type="submit">Send</button></div>
-                            <?php echo " <input name='email' type= 'hidden' value='".$_SESSION['email']."' > "; ?>
+                            <?php echo " <input name='sentBy' type= 'hidden' value='".$_SESSION['name']."' > "; ?>
                 </form>
             </div>
         </div>
@@ -89,7 +89,7 @@ if ( (!isset($_SESSION['email']))) {
        
         <?php
         include 'connecttoDB.php';
-        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE email = '".$_SESSION['email']."' ");
+        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE name = '".$_SESSION['name']."' ");
 
 
         while ($row = mysqli_fetch_array($result)) {

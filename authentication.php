@@ -15,12 +15,12 @@
         if($count == 1){  
         if($type == "User"){
 
-            $_SESSION['email']= $email; 
+            $_SESSION['name']= $row['name']; 
 
             header('location:user homepage.php');  
         } if($type == "Admin"){
 
-            $_SESSION['email']= $email; 
+            $_SESSION['name']= $row['name']; 
 
             header('location:admin home page.php');  
         }
