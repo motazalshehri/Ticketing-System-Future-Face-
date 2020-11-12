@@ -96,12 +96,12 @@ if ( (!isset($_SESSION['name']))) {
             </div>
         </div>
     </section>
-    <h1 class="text-uppercase text-center text-secondary">my tickets</h1>
 
-    <section id="about" class="bg-primary text-white mb-0" style="height:600px">
-        <div class="container">
-            <h2 class="text-uppercase text-center text-white">my tickets</h2>
+    <div class="container">
+            <h1 class="text-uppercase text-center text-">my tickets</h1>
         </div>
+    <section  id="about" class="bg-primary text-white mb-0 scroll" style="float:left; height:600px ">
+        
        
         <?php
         include 'connecttoDB.php';
@@ -130,10 +130,13 @@ if ( (!isset($_SESSION['name']))) {
 
         ?>
     </section>
-    <section id="contact" style="height:600px">
-        <div class="container">
-            <h2 class="text-uppercase text-center text-secondary mb-0">tickets To Me</h2>
+
+    <div class="container">
+            <h1 class="text-uppercase text-center text-secondary mb-0">tickets To Me</h1>
         </div>
+
+    <section  class="scroll background-color:white" style="  height:600px">
+        
         <?php
         include 'connecttoDB.php';
         $result = mysqli_query($conn, "SELECT * FROM tickets WHERE sentTo = '".$_SESSION['name']."'");
@@ -145,7 +148,7 @@ if ( (!isset($_SESSION['name']))) {
   <div >
   <a href="userCard.php?id='.$row['num'].'=">
 
-        <div scrollmenu  data-ride="carousel" style=" float:left; background: #000000;height: 300px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
+        <div scrollmenu  data-ride="carousel" style=" float:right; background: #000000;height: 300px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">Status: '.$row['status'].'</h2>
@@ -164,7 +167,7 @@ if ( (!isset($_SESSION['name']))) {
     </section>
 
 
-    
+
     <footer class="footer text-center"></footer>
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright ©️&nbsp;future face 2020</small></div>
