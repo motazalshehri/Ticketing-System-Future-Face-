@@ -16,6 +16,19 @@ if ( (!isset($_SESSION['name']))) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="orange.css">
+
+    <style>
+    section.scroll {
+       
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 0;
+  overflow-x: scroll;
+  display: flex;
+   
+    }
+
+</style>
 </head>
 
 <body id="page-top">
@@ -57,7 +70,7 @@ if ( (!isset($_SESSION['name']))) {
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label></label>
                             <input class="form-control" type="text" id="name-1" required="" placeholder="Title"
-                                name="title">
+                                name="title" maxlength="30">
                             <small class="form-text text-danger help-block"></small>
                         </div>
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -83,48 +96,76 @@ if ( (!isset($_SESSION['name']))) {
             </div>
         </div>
     </section>
-    <section id="about" class="bg-primary text-white mb-0">
-        <div class="container">
-            <h2 class="text-uppercase text-center text-white">my tickets</h2>
-        </div>
-       
+    <h1 class="text-uppercase text-center text-secondary">my tickets</h1>
+
+    <section  id="about" class="bg-primary text-white mb-0 scroll" style="float:left; height:600px "  >
+
+
+    
+        
         <?php
         include 'connecttoDB.php';
-        $result = mysqli_query($conn, "SELECT * FROM tickets ");
+        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE sentBy = '".$_SESSION['name']."'");
 
 
         while ($row = mysqli_fetch_array($result)) {
 
             echo '
+  <div >
+  <a href="userCard.php?id='.$row['num'].'=">
 
-  
-        <div style=" float:left; background: #000000;height: auto;width: 350px;margin: 50px 100px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class=" text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . ' - ' . $row['title'] . '</h2>
-            <h2 class=" text-center text-white" style="margin: 0px;padding: 0px 0px;text-align: center;padding-bottom: 75px;font-size: 30px;background: #454545;padding-top: 75px;">' . $row['complaint'] . '</h2>
-            <h5 class=" text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 20px;"> Status : '  . $row['status'] . '</h5>
-            </div>
+        <div scrollmenu  data-ride="carousel" style=" float:left; background: #000000;height: 300px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">Status: '.$row['status'].'</h2>
+        </div>
+
+        </a>
+
+</div>
+
+
             ';
         }
 
         ?>
+
     </section>
-    <section id="contact">
+
+    <section id="contact" style="float:left; height:600px" >
         <div class="container">
             <h2 class="text-uppercase text-center text-secondary mb-0">tickets To Me</h2>
         </div>
-        <div
-            style="background: #000000;height: 350px;width: 350px;margin: 50px 100px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white"
-                style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">title</h2>
-            <h2 class="text-uppercase text-center text-white"
-                style="margin: 0px;padding: 0px 0px;text-align: center;padding-bottom: 75px;font-size: 30px;background: #454545;padding-top: 75px;">
-                ticket</h2>
-            <h2 class="text-uppercase text-center text-white"
-                style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 30px;">
-                Redirect</h2>
+        <?php
+        include 'connecttoDB.php';
+        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE sentTo = '".$_SESSION['name']."'");
+
+
+        while ($row = mysqli_fetch_array($result)) {
+
+            echo '
+  <div >
+  <a href="userCard.php?id='.$row['num'].'=">
+
+        <div scrollmenu  data-ride="carousel" style=" float:left; background: #000000;height: 300px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">Status: '.$row['status'].'</h2>
         </div>
-        <div></div>
+
+        </a>
+
+</div>
+
+
+            ';
+        }
+
+        ?>
+<div></div>
     </section>
+
+    
     <footer class="footer text-center"></footer>
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright ©&nbsp;future face 2020</small></div>
@@ -133,6 +174,8 @@ if ( (!isset($_SESSION['name']))) {
             class="d-block js-scroll-trigger text-center text-white rounded" href="#page-top"><i
                 class="fa fa-chevron-up"></i></a></div>
     </div>
+    
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
