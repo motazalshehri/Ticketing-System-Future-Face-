@@ -89,7 +89,7 @@ if ( (!isset($_SESSION['name']))) {
        
         <?php
         include 'connecttoDB.php';
-        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE name = '".$_SESSION['name']."' ");
+        $result = mysqli_query($conn, "SELECT * FROM tickets ");
 
 
         while ($row = mysqli_fetch_array($result)) {
