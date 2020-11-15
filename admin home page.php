@@ -117,6 +117,9 @@ input::-webkit-input-placeholder {
 	<input type="search" id="search" placeholder="Search">
 </form>
                     </div>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="background-color: transparent;" href="#portfolio">Tickets</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="background-color: transparent;" href="#about">redirected tickets</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " style="background-color: transparent;" href="registerpage.php"> Register an account</a></li>
                     <li class="nav-item mx-0 mx-lg-0"><a href="logout.php"><button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a></li>
                 </ul>
             </div>
@@ -131,10 +134,10 @@ input::-webkit-input-placeholder {
         </div>
     </header>
     <div class="container">
-            <h1 class="text-uppercase text-center text-secondary" >tickets</h1>
+            <h1 class="text-uppercase text-center text-secondary" style="padding-top:20px;" >tickets</h1>
         </div>
 
-    <section class="scroll" id="portfolio" class="portfolio" style="height:600px">
+    <section class="scroll" id="portfolio" class="portfolio" style="height:600px; margin-bottom:0px">
         
         <?php
         include 'connecttoDB.php';
@@ -164,24 +167,38 @@ input::-webkit-input-placeholder {
         ?>
 
     </section>
-    
+    <div class="container" style="background-color: #f09329 ; max-width:unset ; width:1000; height:50px">
+            <h2 class="text-uppercase text-center text-white" style="margin-bottom:0px; padding-top:20px;">REDIRECTED tickets</h2>
+        </div>
+    <section class="scroll" id="about" class="bg-primary text-white mb-0" style="background-color: #f09329 ; height:700px; margin-bottom:0px">
+        
+        <?php
+        include 'connecttoDB.php';
+        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE redirected = 'true'");
 
-    <section id="about" class="bg-primary text-white mb-0">
-        <div class="container">
-            <h2 class="text-uppercase text-center text-white">REDIRECTED tickets</h2>
+
+        while ($row = mysqli_fetch_array($result)) {
+
+            echo '
+  <div >
+  <a href="adminCard.php?id='.$row['num'].'=">
+
+        <div scrollmenu  data-ride="carousel" style=" float:left; background: #000000;height: 400px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">sent by: '.$row['sentBy'].'</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">redirected by: '.$row['redirectedBy'].'</h2>
         </div>
-        <div style="background: #000000;height: 700px;width: 350px;margin: 50px 100px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">title</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px 0px;text-align: center;padding-bottom: 75px;font-size: 30px;background: #454545;padding-top: 75px;">Complaint</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px 0px;text-align: center;padding-bottom: 40px;font-size: 30px;background: #454545;padding-top: 40px;height: 150px;">Comment</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 30px;">transfer to</h2>
-            <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="text-align: center;margin: 10px 50px;width: 250px;font-size: 20px;">select department&nbsp;</button>
-                <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-            </div>
-            <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width: 250px;margin: 10px 50px;font-size: 20px;">select member&nbsp;</button>
-                <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-            </div><button class="btn btn-primary" type="button" style="margin: 10px 145px;height: 46px;">Send</button>
-        </div>
+
+        </a>
+
+</div>
+
+
+            ';
+        }
+
+        ?>
     </section>
 
 
