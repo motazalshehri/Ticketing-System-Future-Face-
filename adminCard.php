@@ -46,13 +46,13 @@
 
             <div>
             <div>
-                <h5>#'.$row['num'].' - '.$row['title'].'</h5>
+                <h5>#' . $row['num'] . ' - ' . $row['title'] . '</h5>
             </div>
             <div>
-                <p>'.$row['complaint'].'</p>
+                <p>' . $row['complaint'] . '</p>
             </div>
             <div>
-                <h5>sent by: '.$row['sentBy'].'</h5>
+                <h5>sent by: ' . $row['sentBy'] . '</h5>
             </div>
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 30px;">transfer to</h2>
                 <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="text-align: center;margin: 10px 50px;width: 250px;font-size: 20px;">select department&nbsp;</button>
@@ -73,7 +73,16 @@
         ?>
 
     </div>
-
+    <form action="sendTicket.php">
+        <label for="departments">Choose a department:</label>
+        <select id="departments" name="department">
+            <option value="IT">IT</option>
+            <option value="Accounting">Accounting</option>
+            <option value="Marketing">Marketing</option>
+            <option value="HR">HR</option>
+        </select>
+        <input type="submit">
+    </form>
     <br><br>
     <footer class="footer text-center"></footer>
     <div class="copyright py-4 text-center text-white">
