@@ -16,6 +16,11 @@ if ((!isset($_SESSION['name']))) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="orange.css">
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
 <style>
     section.scroll {
        
@@ -26,6 +31,72 @@ if ((!isset($_SESSION['name']))) {
   display: flex;
    
     }
+
+   
+a {
+	color: #69C;
+	text-decoration: none;
+}
+a:hover {
+	color: #F60;
+}
+h1 {
+	font: 1.7em;
+	line-height: 110%;
+	color: #000;
+}
+p {
+	margin: 0 0 20px;
+}
+
+
+input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 55px;
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	border-color: #66CC75;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+
 
 </style>
 
@@ -41,6 +112,11 @@ if ((!isset($_SESSION['name']))) {
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Tickets</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">redirected tickets</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " href="registerpage.php">Register an account</a></li>
+                    <div>
+                    <form>
+	<input type="search" id="search" placeholder="Search">
+</form>
+                    </div>
                     <li class="nav-item mx-0 mx-lg-0"><a href="logout.php"><button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a></li>
                 </ul>
             </div>
@@ -49,6 +125,8 @@ if ((!isset($_SESSION['name']))) {
     <header class="masthead bg-primary text-white text-center">
         <div class="container">
             <h1>Ticketing System</h1>
+               <div id="display"></div>
+
             <h2 class="font-weight-light mb-0"></h2>
         </div>
     </header>
@@ -56,7 +134,7 @@ if ((!isset($_SESSION['name']))) {
             <h1 class="text-uppercase text-center text-secondary" >tickets</h1>
         </div>
 
-    <section class="scroll" id="portfolio" class="portfolio" style="height:1000px">
+    <section class="scroll" id="portfolio" class="portfolio" style="height:600px">
         
         <?php
         include 'connecttoDB.php';
@@ -86,6 +164,7 @@ if ((!isset($_SESSION['name']))) {
         ?>
 
     </section>
+    
 
     <section id="about" class="bg-primary text-white mb-0">
         <div class="container">
