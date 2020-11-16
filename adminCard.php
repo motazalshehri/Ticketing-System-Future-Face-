@@ -47,7 +47,8 @@
             <div style="text-align: center;">
             <div>
                 <h5 style="font-size: 1.5rem;">#' . $row['num'] . ' - ' . $row['title'] . '</h5>
-            </div>
+                <h5 style="font-size: 1.5rem;">To the ' . $row['department'] . ' department</h5>
+                </div>
             <div>
                 <p>' . $row['complaint'] . '</p>
             </div>
@@ -56,26 +57,33 @@
             </div>
 
                 <h5 style="font-size: 1.5rem;">Transfer to</h5>
-                
-                <select id="departments" name="department" class="form-control form-control-lg" required style="padding: 0px; width:200px; margin: auto;">
-                    <option value="" disabled selected>Department</option>
-                    <option value="IT">IT</option>
-                    <option value="Accounting">Accounting</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="HR">HR</option>
-                </select>
-                <br>
-                <select id="departments" name="department" class="form-control form-control-lg" required style="margin:20px; padding: 0px; width:200px; margin: auto;">
+                <form method="POST" action="sendTicket.php">
+                    <input name="id" type= "hidden" value='.$row['num'].'>
+                    <select id="departments" name="department" class="form-control form-control-lg" required style="padding: 0px; width:200px; margin: auto;">
+                        <option value="" disabled selected>Department</option>
+                        <option value="IT">IT</option>
+                        <option value="Accounting">Accounting</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="HR">HR</option>
+                    </select>
+                    <br>
+                    <select id="members" name="member" class="form-control form-control-lg" required style="margin:20px; padding: 0px; width:200px; margin: auto;">
                     <option value="" disabled selected>Member</option>
-                    <option value="IT">IT</option>
-                    <option value="Accounting">Accounting</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="HR">HR</option>
-                </select>
+                    ';
+                    include 'connecttoDB.php';
+                    $usersResult = mysqli_query($conn, "SELECT * FROM User WHERE type='User' ");
+            
+            
+                    while ($usersRow = mysqli_fetch_array($usersResult)) {
+            
+                        echo '<option value="'.$usersRow['name'].'">'.$usersRow['name'].'</option>';}
 
-                <button class="btn btn-primary" type="button" onClick="window.history.back();" style="margin: 10px 40px;height: 46px;">Back</button>
-                <button class="btn btn-primary" type="button" style="margin: 10px 30px;height: 46px;">Send</button>
-    
+                    echo '
+                        </select>
+
+                    <button class="btn btn-primary" type="button" onClick="window.history.back();" style="margin: 10px 40px;height: 46px;">Back</button>
+                    <button class="btn btn-primary" type="submit" style="margin: 10px 30px;height: 46px;">Send</button>
+                </form>
             </div>
         </div>
             ';
