@@ -27,6 +27,77 @@ if ((!isset($_SESSION['name']))) {
             display: flex;
 
         }
+
+        a {
+            color: #69C;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #F60;
+        }
+
+        h1 {
+            font: 1.7em;
+            line-height: 110%;
+            color: #000;
+        }
+
+        p {
+            margin: 0 0 20px;
+        }
+
+
+        input {
+            outline: none;
+        }
+
+        input[type=search] {
+            -webkit-appearance: textfield;
+            -webkit-box-sizing: content-box;
+            font-family: inherit;
+            font-size: 100%;
+        }
+
+        input::-webkit-search-decoration,
+        input::-webkit-search-cancel-button {
+            display: none;
+        }
+
+
+        input[type=search] {
+            background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+            border: solid 1px #ccc;
+            padding: 9px 10px 9px 32px;
+            width: 55px;
+
+            -webkit-border-radius: 10em;
+            -moz-border-radius: 10em;
+            border-radius: 10em;
+
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            transition: all .5s;
+        }
+
+        input[type=search]:focus {
+            width: 130px;
+            background-color: #fff;
+            border-color: #66CC75;
+
+            -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+            -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+            box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+        }
+
+
+        input:-moz-placeholder {
+            color: #999;
+        }
+
+        input::-webkit-input-placeholder {
+            color: #999;
+        }
     </style>
 </head>
 
@@ -39,6 +110,9 @@ if ((!isset($_SESSION['name']))) {
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio" style="background-color: transparent;">new ticket</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" style="background-color: transparent;">my tickets</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact" style="background-color: transparent;">tickets to me</a></li>
+                    <form action="searchpageuser.php" method="post">
+                        <input type="search" id="search" name="term" placeholder="Search">
+                    </form>
                     <li class="nav-item mx-0 mx-lg-0"><a href="logout.php" style="background-color: transparent;"><button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a></li>
 
                 </ul>
@@ -127,7 +201,7 @@ if ((!isset($_SESSION['name']))) {
         <h1 class="text-uppercase text-center text-secondary mb-0">tickets To Me</h1>
     </div>
 
-    <section class="scroll background-color:white" style="  height:600px">
+    <section id="contact" class="scroll background-color:white" style="  height:600px">
 
         <?php
         include 'connecttoDB.php';
