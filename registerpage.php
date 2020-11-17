@@ -70,7 +70,7 @@
 			<option selected="" hidden >Select Department</option>
 			<option>Designer</option>
 			<option>Manager</option>
-			<option>Accaunting</option>
+			<option>Accounting</option>
 		</select>
 	</div> <!-- form-group end.// -->
     <div class="form-group input-group">
@@ -87,12 +87,12 @@
     </div> <!-- form-group// -->                                      
    
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="user">
+  <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="User">
   <label class="form-check-label" for="inlineRadio1" value='user'>User</label>
 </div> 
 
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="admin">
+  <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="Admin">
   <label class="form-check-label" for="inlineRadio2" value='admin'>Admin</label>
 </div>
 <hr>

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if ((!isset($_SESSION['name']))) {
+    header("Location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -23,7 +29,7 @@
         }
 
         a {
-            color: #69C;
+            color: #000;
             text-decoration: none;
         }
 
@@ -92,6 +98,8 @@
         input::-webkit-input-placeholder {
             color: #999;
         }
+        
+
     </style>
 </head>
 
@@ -115,20 +123,23 @@
     </nav>
     <header class="masthead bg-primary text-white text-center">
         <div class="container">
+        
             <h1>Ticketing System</h1>
+            <div id="display"></div>
+           
+
             <h2 class="font-weight-light mb-0"></h2>
         </div>
-    </header>
 
-<body id="page-top">
-
+        </header>
+        
     <div class="container">
         
-        <h1 class="text-uppercase text-center text-secondary" style="padding-top:20px;">my tickets</h1>
+        <h1 class="text-uppercase text-center text-secondary" style="padding-top:20px;"> My tickets</h1>
     </div>
 
     <section class="scroll" id="portfolio" class="portfolio" style="height:600px; margin-bottom:0px">
-    <a href="user homepage.php" > <svg style="position: absolute; top:400px; left: 25px; " width="8em" height="4em" viewBox="0 0 16 16" class="bi bi-arrow-left-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <a href="user homepage.php" > <svg style="position: absolute; top:450px; left: 25px; " width="8em" height="4em" viewBox="0 0 16 16" class="bi bi-arrow-left-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z"/>
 </svg>
     </a>
@@ -138,10 +149,10 @@
     $key=$_POST["term"];
         include 'connecttoDB.php';
 
-        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE num  LIKE  '%$key%' OR title LIKE '%$key%' ");
-
+        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE num  LIKE  '%$key%' OR title LIKE '%$key%' OR department LIKE '%$key%'  ");
+        if(mysqli_num_rows($result) > 0){
         while ($row = mysqli_fetch_array($result)) {
-if($row!=0){
+
             echo '
   <div >
   <a href="userCard.php?id=' . $row['num'] . '=">
@@ -150,6 +161,7 @@ if($row!=0){
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
             <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">sent by: ' . $row['sentBy'] . '</h2>
+            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">to: ' . $row['department'] . ' Department</h2>
         </div>
 
         </a>
@@ -158,8 +170,8 @@ if($row!=0){
 
 
             ';
-        } else echo "<h1> no result</h1>";
         }
+        } else echo "<h1 style='width:500px; margin: 0 auto;text-align: center;'> No Result</h1>";
 
         ?>
 
