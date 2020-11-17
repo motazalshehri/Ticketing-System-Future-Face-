@@ -98,6 +98,8 @@ if ((!isset($_SESSION['name']))) {
         input::-webkit-input-placeholder {
             color: #999;
         }
+        
+
     </style>
 </head>
 
@@ -169,7 +171,7 @@ if ((!isset($_SESSION['name']))) {
 
             ';
         }
-        } else echo "<h1> No Result</h1>";
+        } else echo "<h1 style='width:500px; margin: 0 auto;text-align: center;'> No Result</h1>";
 
         ?>
 

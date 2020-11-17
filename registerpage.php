@@ -87,7 +87,7 @@
     </div> <!-- form-group// -->                                      
    
     <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="user">
+  <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="User">
   <label class="form-check-label" for="inlineRadio1" value='user'>User</label>
 </div> 
 

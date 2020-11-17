@@ -103,13 +103,7 @@ if ((!isset($_SESSION['name']))) {
             color: #999;
         }
 
-        h1 {
-    width:500px;
-    margin: 0 auto;
-    
-    text-align: center;
-}
-        
+
     </style>
 
 </head>
@@ -187,7 +181,7 @@ if ((!isset($_SESSION['name']))) {
 
             ';
         }
-        } else echo "<h1> No Result</h1>";
+    } else echo "<h1 style='width:500px; margin: 0 auto;text-align: center;'> No Result</h1>";
 
         ?>
 
