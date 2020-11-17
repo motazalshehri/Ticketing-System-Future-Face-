@@ -2,12 +2,13 @@
 session_start();
 if ((!isset($_SESSION['name']))) {
     header("Location:login.php");
-}else{
+} else {
     echo '<script language="javascript">';
     if (isset($_GET['sent'])) {
-      echo 'alert("'.$_GET['sent'].'");';}
+        echo 'alert("' . $_GET['sent'] . '");';
+    }
 }
-
+echo '</script>';
 ?>
 <!DOCTYPE html>
 <html>
@@ -128,7 +129,7 @@ if ((!isset($_SESSION['name']))) {
                     </form>
                     <li class="nav-item mx-0 mx-lg-0">
                         <a href="logout.php" style="background-color: transparent;">
-                        <button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a>
+                            <button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a>
                     </li>
                 </ul>
             </div>
@@ -176,7 +177,7 @@ if ((!isset($_SESSION['name']))) {
         ?>
 
     </section>
-    <div class="container" style="background-color: #f09329 ; max-width:unset ; width:1000; height:50px">
+    <div class="container" style="background-color: #f09329 ; max-width:unset ; height:50px">
         <h2 class="text-uppercase text-center text-white" style="margin-bottom:0px; padding-top:20px;">REDIRECTED tickets</h2>
     </div>
     <section class="scroll" id="about" class="bg-primary text-white mb-0" style="background-color: #f09329 ; height:700px; margin-bottom:0px">
