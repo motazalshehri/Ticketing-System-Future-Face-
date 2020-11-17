@@ -163,8 +163,8 @@ if ((!isset($_SESSION['name']))) {
         </div>
     </section>
 
-    <div class="container">
-        <h1 class="text-uppercase text-center text-">my tickets</h1>
+    <div class="container" style="background-color: #f09329 ; max-width:unset ; width:1000; height:50px">
+        <h1 class="text-uppercase text-center text-" style="margin-bottom:0px; padding-top:10px;" >my tickets</h1>
     </div>
     <section id="about" class="bg-primary text-white mb-0 scroll" style="float:left; height:600px ">
 
