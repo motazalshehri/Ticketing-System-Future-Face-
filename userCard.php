@@ -5,7 +5,7 @@
     <!------ Include the above in your HEAD tag ---------->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Admin home page</title>
+    <title>card page</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
@@ -43,23 +43,35 @@
         while ($row = mysqli_fetch_array($result)) {
 
             echo '
+            <div style="text-align: center;">
+            <div>
+                <h5 style="font-size: 1.5rem;">#' . $row['num'] . ' - ' . $row['title'] . '</h5>
+                <h5 style="font-size: 1.5rem;">To the ' . $row['department'] . ' department</h5>
+                </div>
+            <div>
+                <p>' . $row['complaint'] . '</p>
+            </div>
+            <div>
+                <h5 style="font-size: 1.5rem;">status: '.$row['status'].'</h5>
+            </div>
+            <form method="POST" action="CompleteTicket.php">
 
-            <div>
-            <div>
-                <h5>#'.$row['num'].' - '.$row['title'].'</h5>
-            </div>
-            <div>
-                <h2>'.$row['complaint'].'</h2>
-            </div>
-          
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 0px;padding-top: 10px;font-size: 30px;">transfer to</h2>
-            <p>Status: '.$row['status'].'</p>
-   
-            </div>
-                
-    
-                <button class="btn btn-primary" type="button" onClick="window.history.back();" style="margin: 10px 145px;height: 46px;">Back</button>
-    
+                <input name="id" type= "hidden" value='.$row['num'].'>
+
+                <button class="btn btn-primary" type="button" onClick="window.history.back();" style="margin: 10px 40px;height: 46px;">Back</button>
+                <button class="btn btn-primary" type="submit" style="margin: 10px 30px;height: 46px;">Completed</button> 
+            
+            </form>
+            <form method="POST" action="RedirectTicket.php">
+
+                <input name="id" type= "hidden" value='.$row['num'].'>
+                <input name="RedirectedBy" type= "hidden" value='.$row['sentTo'].'>
+                <div class="form-group floating-label-form-group controls mb-5 pb-2">
+                <textarea class="form-control" id="comment" required="" placeholder="comment" name="comment" rows="3"></textarea>
+                <small class="form-text text-danger help-block"></small></div>
+                <button class="btn btn-primary" type="submit" style="margin: 10px 30px;height: 46px;">Redirect</button> 
+            
+            </form>
             </div>
         </div>
             ';

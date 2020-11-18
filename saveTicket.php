@@ -9,9 +9,10 @@ $sentBy = $_POST["sentBy"];
 $sentTo = "";
 $redirected = "false";
 $redirectedBy = "";
+$comment = "";
 
-$query = "INSERT INTO tickets(title,sentBy,department,complaint,sentTo,redirected,redirectedBy)
-          VALUES ('".$title."','".$sentBy."','".$department."','".$complaint."','".$sentTo."','".$redirected."','".$redirectedBy."')";
+$query = "INSERT INTO tickets(title,sentBy,department,complaint,sentTo,redirected,redirectedBy,comment)
+          VALUES ('".$title."','".$sentBy."','".$department."','".$complaint."','".$sentTo."','".$redirected."','".$redirectedBy."','".$comment."')";
 
  mysqli_query($conn,$query);
  header('location:user homepage.php');
