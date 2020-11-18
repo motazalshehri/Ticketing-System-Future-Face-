@@ -19,10 +19,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
-    <div class="container"><a class="navbar-brand js-scroll-trigger" href="admin home page.php" style="background-color: transparent;">
-                <img src="ff.png"  alt="Future Face" style="height: 75px; width:150px;">
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="admin home page.php" style="background-color: transparent;">
+                <img src="ff.png" alt="Future Face" style="height: 75px; width:150px;">
             </a>
-                        <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"></li>
@@ -55,7 +55,7 @@
                 <p>' . $row['complaint'] . '</p>
             </div>
             <div>
-            <h5 style="font-size: 1.5rem;">status: '.$row['status'].'</h5>
+            <h5 style="font-size: 1.5rem;">status: ' . $row['status'] . '</h5>
             </div>
             <div>
                 <h5 style="font-size: 1.5rem;">Sent by: ' . $row['sentBy'] . '</h5>
@@ -63,7 +63,7 @@
 
                 <h5 style="font-size: 1.5rem;">Transfer to</h5>
                 <form method="POST" action="sendTicket.php">
-                    <input name="id" type= "hidden" value='.$row['num'].'>
+                    <input name="id" type= "hidden" value=' . $row['num'] . '>
                     <select id="departments" name="department" class="form-control form-control-lg" required style="padding: 0px; width:200px; margin: auto;">
                         <option value="" disabled selected>Department</option>
                         <option value="IT">IT</option>
@@ -75,15 +75,16 @@
                     <select id="members" name="member" class="form-control form-control-lg" required style="margin:20px; padding: 0px; width:200px; margin: auto;">
                     <option value="" disabled selected>Member</option>
                     ';
-                    include 'connecttoDB.php';
-                    $usersResult = mysqli_query($conn, "SELECT * FROM User WHERE type='User' ");
-            
-            
-                    while ($usersRow = mysqli_fetch_array($usersResult)) {
-            
-                        echo '<option value="'.$usersRow['name'].'">'.$usersRow['name'].'</option>';}
+            include 'connecttoDB.php';
+            $usersResult = mysqli_query($conn, "SELECT * FROM User WHERE type='User' ");
 
-                    echo '
+
+            while ($usersRow = mysqli_fetch_array($usersResult)) {
+
+                echo '<option value="' . $usersRow['name'] . '">' . $usersRow['name'] . '</option>';
+            }
+
+            echo '
                         </select>
 
                     <button class="btn btn-primary" type="button" onClick="window.history.back();" style="margin: 10px 40px;height: 46px;">Back</button>
@@ -92,6 +93,16 @@
             </div>
         </div>
             ';
+            if ($row['redirected'] == 'true') {
+                echo '
+                    <div style="text-align: center;">
+                        <h5 style="font-size: 1.5rem;">Redirected by: ' . $row['redirectedBy'] . '</h5>
+                    </div>
+                    <div style="text-align: center;">
+                        <p>' . $row['comment'] . '</p>
+                    </div>
+                ';
+            }
         }
 
         ?>
