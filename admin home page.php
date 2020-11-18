@@ -2,12 +2,7 @@
 session_start();
 if ((!isset($_SESSION['name']))) {
     header("Location:login.php");
-}else{
-    echo '<script language="javascript">';
-    if (isset($_GET['sent'])) {
-      echo 'alert("'.$_GET['sent'].'");';}
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -114,7 +109,15 @@ if ((!isset($_SESSION['name']))) {
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
         <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top" style="background-color: transparent;">
+        <div>
+        <?php
+        echo'
+        <i class="fa fa-fw fa-user"> '.$_SESSION['name'].' </i>
+        '
+        ?>
+        </div>
                 <img src="ff.png" alt="Future Face" style="height: 75px; width:150px;">
+                
             </a>
             <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -127,7 +130,10 @@ if ((!isset($_SESSION['name']))) {
                         <input type="search" id="search" name="term" placeholder="Search">
                     </form>
                     <li class="nav-item mx-0 mx-lg-0">
+
+
                         <a href="logout.php" style="background-color: transparent;">
+                        
                         <button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a>
                     </li>
                 </ul>
