@@ -15,6 +15,6 @@ $query = "INSERT INTO tickets(title,sentBy,department,complaint,sentTo,redirecte
           VALUES ('".$title."','".$sentBy."','".$department."','".$complaint."','".$sentTo."','".$redirected."','".$redirectedBy."','".$comment."')";
 
  mysqli_query($conn,$query);
- header('location:user homepage.php');
+ header('location:user homepage.php?sent=The ticket has been sent');
 
 ?>

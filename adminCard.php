@@ -55,6 +55,9 @@
                 <p>' . $row['complaint'] . '</p>
             </div>
             <div>
+            <h5 style="font-size: 1.5rem;">status: '.$row['status'].'</h5>
+            </div>
+            <div>
                 <h5 style="font-size: 1.5rem;">Sent by: ' . $row['sentBy'] . '</h5>
             </div>
 

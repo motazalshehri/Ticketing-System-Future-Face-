@@ -8,4 +8,4 @@ $comment = $_POST["comment"];
 $query = "UPDATE tickets SET status = 'Redirected', sentTo = '', redirected = 'true' , RedirectedBy = '$RedirectedBy', comment = '$comment'  WHERE num = '$id' ";
 
 mysqli_query($conn, $query);
-header('location:user homepage.php');
+header('location:user homepage.php?redirected=The ticket has been redirected');
