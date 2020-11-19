@@ -113,6 +113,8 @@ echo '</script>';
         input::-webkit-input-placeholder {
             color: #999;
         }
+
+        
     </style>
 </head>
 <hr>
