@@ -169,6 +169,7 @@ echo '</script>';
             </div>
             <div>
                 <h5 style="font-size: 1.5rem;">Sent by: ' . $row['sentBy'] . '</h5>
+                <h5 style="font-size: 1.5rem;">Status: ' . $row['status'] . '</h5>
             </div>
 
                 <h5 style="font-size: 1.5rem;">Transfer to</h5>

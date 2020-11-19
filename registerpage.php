@@ -184,7 +184,7 @@ echo '</script>';
 		<select name="department" class="form-control">
 			<option selected="" hidden >Select Department</option>
 			<option>IT</option>
-			<option>Sales</option>
+			<option>Marketing</option>
             <option>Accounting</option>
             <option >HR</option>
 		</select>
