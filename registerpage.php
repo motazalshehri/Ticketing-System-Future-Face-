@@ -183,9 +183,10 @@ echo '</script>';
 		</div>
 		<select name="department" class="form-control">
 			<option selected="" hidden >Select Department</option>
-			<option>Designer</option>
-			<option>Manager</option>
-			<option>Accounting</option>
+			<option>IT</option>
+			<option>Sales</option>
+            <option>Accounting</option>
+            <option >HR</option>
 		</select>
 	</div> <!-- form-group end.// -->
     <div class="form-group input-group">
