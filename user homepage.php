@@ -122,7 +122,7 @@ echo '</script>';
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio" style="background-color: transparent;">new ticket</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" style="background-color: transparent;">my tickets</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact" style="background-color: transparent;">tickets to me</a></li>
-                    <form action="searchpage.php" method="post">
+                    <form action="searchpageuser.php" method="post">
                         
                         <input type="search" id="search" name="term" placeholder="Search">
                     </form>

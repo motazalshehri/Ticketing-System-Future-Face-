@@ -10,7 +10,7 @@ if ((!isset($_SESSION['name']))) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>User home page</title>
+    <title>User Search page</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
@@ -104,19 +104,34 @@ if ((!isset($_SESSION['name']))) {
 </head>
 
 <body id="page-top">
+<body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
         <div class="container"><a class="navbar-brand js-scroll-trigger" href="user homepage.php" style="background-color: transparent;"><img src="ff.png" alt="Future Face" style="height: 75px; width:150px;"></a>
             <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio" style="background-color: transparent;">new ticket</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" style="background-color: transparent;">my tickets</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact" style="background-color: transparent;">tickets to me</a></li>
-                    <form action="searchpageuser.php" method="post">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">new ticket</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">my tickets</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">tickets to me</a></li>
+                    <form action="searchpage.php" method="post">
+                        
                         <input type="search" id="search" name="term" placeholder="Search">
                     </form>
-                    <li class="nav-item mx-0 mx-lg-0"><a href="logout.php" style="background-color: transparent;"><button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a></li>
+                  
+                    <li class="nav-item mx-0 mx-lg-1">
 
+
+
+        <li class="dropdown" class="nav-item mx-0 mx-lg-1"  style=" background-color:transparent color:black;" ><a   class="nav-link py-3 px-0 px-lg-3 "  style=" margin-bottom:5px; color:#fff;"  class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION['name'];
+        ;?> <span class="caret"></span></a>
+        <ul style=" background-color:343432;" class="dropdown-menu">
+
+          <li><a href="#"><a href="logout.php" style="background-color: transparent;">
+                            <button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a>
+</a></li>
+        </ul>        
+
+                    </li>
                 </ul>
             </div>
         </div>

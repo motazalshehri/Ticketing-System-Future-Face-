@@ -108,24 +108,36 @@ if ((!isset($_SESSION['name']))) {
 
 </head>
 
-<body id="page-top">
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
-        <div class="container"><a class="navbar-brand js-scroll-trigger" href="admin home page.php" style="background-color: transparent;">
+<div class="container"><a class="navbar-brand js-scroll-trigger" href="admin home page.php" style="background-color: transparent;">
                 <img src="ff.png"  alt="Future Face" style="height: 75px; width:150px;">
             </a>
-            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="background-color: transparent;" href="#portfolio">Tickets</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="background-color: transparent;" href="#about">redirected tickets</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " style="background-color: transparent;" href="registerpage.php"> Register an account</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="admin home page.php#portfolio" style="background-color: transparent;">Tickets</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="admin home page.php#about" style="background-color: transparent;">redirected tickets</a></li>
                     <form action="searchpage.php" method="post">
-                    <input type="search" id="search" name="term" placeholder="Search">
+                        
+                        <input type="search" id="search" name="term" placeholder="Search">
                     </form>
-                    <li class="nav-item mx-0 mx-lg-0">
-                        <a href="logout.php" style="background-color: transparent;">
-                        <button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a>
+                  
+                    <li class="nav-item mx-0 mx-lg-1">
+
+
+
+        <li class="dropdown" class="nav-item mx-0 mx-lg-1"  style=" background-color:transparent color:black;" ><a   class="nav-link py-3 px-0 px-lg-3 "  style=" margin-bottom:5px; color:#fff;"  class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION['name'];
+        ;?> <span class="caret"></span></a>
+        <ul style=" background-color:343432;" class="dropdown-menu">
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " style="background-color: transparent;" href="registerpage.php"> Register an account</a></li>
+
+          <li><a href="#"><a href="logout.php" style="background-color: transparent;">
+                            <button type="button" style="margin-left: 55px;" class="btn btn-danger">Logout</button></a>
+</a></li>
+        </ul>        
+
+                    </li>
+
                     </li>
                 </ul>
             </div>
