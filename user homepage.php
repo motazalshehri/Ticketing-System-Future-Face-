@@ -8,10 +8,10 @@ if ((!isset($_SESSION['name']))) {
         echo 'alert("' . $_GET['sent'] . '");';
     }
     if (isset($_GET['completed'])) {
-        echo 'alert("' . $_GET['sent'] . '");';
+        echo 'alert("' . $_GET['completed'] . '");';
     }
     if (isset($_GET['redirected'])) {
-        echo 'alert("' . $_GET['sent'] . '");';
+        echo 'alert("' . $_GET['redirected'] . '");';
     }
 }
 echo '</script>';

@@ -1,9 +1,7 @@
 <?php
 if(isset($_GET['error'])){
-  echo ' <script> alert("'.$_GET['error'].'");</scrip>';
+  echo ' <script> alert("' . $_GET['error'] . '");</script>';
 }
-
-include 'connecttoDB.php';
 
 ?>
 <!DOCTYPE html>

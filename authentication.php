@@ -1,34 +1,31 @@
-<?php      
-    session_start();
+<?php
+session_start();
 
-    include('connecttoDB.php');  
-    $email = $_POST['email'];  
-    $password = $_POST['password'];  
+include('connecttoDB.php');
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-        $sql = "select * from User where email = '$email' and password = '$password' ";  
-        $result = mysqli_query($conn, $sql);  
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
-        $count = mysqli_num_rows($result);  
+$sql = "select * from User where email = '$email' and password = '$password' ";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$count = mysqli_num_rows($result);
 
-        $type = $row['type'];
 
-        if($count == 1){  
-        if($type == "User"){
+if ($count == 1) {
+    $type = $row['type'];
 
-            $_SESSION['name']= $row['name']; 
+    if ($type == "User") {
 
-            header('location:user homepage.php');  
-        } if($type == "Admin"){
+        $_SESSION['name'] = $row['name'];
 
-            $_SESSION['name']= $row['name']; 
+        header('location:user homepage.php');
+    }
+    if ($type == "Admin") {
 
-            header('location:admin home page.php');  
-        }
+        $_SESSION['name'] = $row['name'];
 
-        }  
-        else{  
-           echo '<script>alert("Wrong Email or Password")</script>';
-
-        }     
-    
-?>   
+        header('location:admin home page.php');
+    }
+} else {
+    header('location:login.php?error=Wrong Email or Password');
+}
