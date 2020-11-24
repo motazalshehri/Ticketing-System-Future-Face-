@@ -179,16 +179,6 @@ echo '</script>';
                 <button class="btn btn-primary" type="submit" style="margin: 10px 30px;height: 46px;">Completed</button> 
             
             </form>
-            <form method="POST" action="RedirectTicket.php">
-
-                <input name="id" type= "hidden" value='.$row['num'].'>
-                <input name="RedirectedBy" type= "hidden" value='.$row['sentTo'].'>
-                <div class="form-group floating-label-form-group controls mb-5 pb-2">
-                <textarea class="form-control" id="comment" required="" placeholder="comment" name="comment" rows="3"></textarea>
-                <small class="form-text text-danger help-block"></small></div>
-                <button class="btn btn-primary" type="submit" style="margin: 10px 30px;height: 46px;">Redirect</button> 
-            
-            </form>
             </div>
         </div>
             ';
