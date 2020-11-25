@@ -182,20 +182,37 @@ echo '</script>';
                         <option value="Marketing">Marketing</option>
                         <option value="HR">HR</option>
                     </select>
+                    
                     <br>
+                
                     <select id="members" name="member" class="form-control form-control-lg" required style="margin:20px; padding: 0px; width:200px; margin: auto;">
                     <option value="" disabled selected>Member</option>
-                    ';
+                     <br>';
+                  
+           
                     include 'connecttoDB.php';
                     $usersResult = mysqli_query($conn, "SELECT * FROM User WHERE type='User' ");
             
             
                     while ($usersRow = mysqli_fetch_array($usersResult)) {
             
-                        echo '<option value="'.$usersRow['name'].'">'.$usersRow['name'].'</option>';}
-
+                        echo '<option value="'.$usersRow['name'].'">'.$usersRow['name'].'</option> ';}
+                       
+                        include 'connecttoDB.php';
+              
                     echo '
                         </select>
+
+
+                        <br>
+                        <form method="POST" action="sendTicket.php">
+                        <input name="priority" type= "hidden" value='.$row['priority'].'>
+                        <select id="priority" name="priority" class="form-control form-control-lg" required style="padding: 0px; width:200px; margin: auto;">
+                            <option value="" disabled selected>Priority</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                            </select>
 
                     <button class="btn btn-primary" type="button" onClick="window.history.back();" style="margin: 10px 40px;height: 46px;">Back</button>
                     <button class="btn btn-primary" type="submit" style="margin: 10px 30px;height: 46px;">Send</button>
@@ -203,6 +220,8 @@ echo '</script>';
             </div>
         </div>
             ';
+
+ 
         }
 
         ?>
