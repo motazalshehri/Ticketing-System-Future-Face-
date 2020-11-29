@@ -110,15 +110,40 @@ echo '</script>';
         }
     </style>
 
+    <style>
+        table.dataTable thead .sorting:after,
+        table.dataTable thead .sorting:before,
+        table.dataTable thead .sorting_asc:after,
+        table.dataTable thead .sorting_asc:before,
+        table.dataTable thead .sorting_asc_disabled:after,
+        table.dataTable thead .sorting_asc_disabled:before,
+        table.dataTable thead .sorting_desc:after,
+        table.dataTable thead .sorting_desc:before,
+        table.dataTable thead .sorting_desc_disabled:after,
+        table.dataTable thead .sorting_desc_disabled:before {
+            bottom: .5em;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        $(document).ready(function() {
+            $('#dtOrderExample').DataTable({
+                "order": [
+                    [3, "desc"]
+                ]
+            });
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+
 </head>
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
-        
+
         <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top" style="background-color: transparent;">
-       
+
                 <img src="ff.png" alt="Future Face" style="height: 75px;  width:150px;">
-                
+
             </a>
             <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -127,23 +152,22 @@ echo '</script>';
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="background-color: transparent;" href="#portfolio">Tickets</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="background-color: transparent;" href="#about">redirected tickets</a></li>
                     <form action="searchpage.php" method="post">
-                        
+
                         <input type="search" id="search" name="term" placeholder="Search">
                     </form>
-                  
+
                     <li class="nav-item mx-0 mx-lg-1">
 
 
 
-        <li class="dropdown" class="nav-item mx-0 mx-lg-1"  style=" background-color:transparent color:black;" ><a   class="nav-link py-3 px-0 px-lg-3 "  style=" margin-bottom:5px; color:#fff;"  class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION['name'];
-        ;?> <span class="caret"></span></a>
-        <ul style=" background-color:343432;" class="dropdown-menu">
-        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " style="background-color: transparent;" href="registerpage.php"> Register an account</a></li>
+                    <li class="dropdown" class="nav-item mx-0 mx-lg-1" style=" background-color:transparent color:black;"><a class="nav-link py-3 px-0 px-lg-3 " style=" margin-bottom:5px; color:#fff;" class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION['name'];; ?> <span class="caret"></span></a>
+                        <ul style=" background-color:343432;" class="dropdown-menu">
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " style="background-color: transparent;" href="registerpage.php"> Register an account</a></li>
 
-          <li><a href="#"><a href="logout.php" style="background-color: transparent;">
-                            <button type="button" style="margin-left: 55px;" class="btn btn-danger">Logout</button></a>
-</a></li>
-        </ul>        
+                            <li><a href="#"><a href="logout.php" style="background-color: transparent;">
+                                        <button type="button" style="margin-left: 55px;" class="btn btn-danger">Logout</button></a>
+                                </a></li>
+                        </ul>
 
                     </li>
 
@@ -164,73 +188,56 @@ echo '</script>';
         <h1 class="text-uppercase text-center text-secondary" style="padding-top:20px;">tickets</h1>
     </div>
 
-    <section class="scroll" id="portfolio" class="portfolio" style="height:600px; margin-bottom:0px">
+    <section class="scroll" id="portfolio" class="portfolio" style="height:auto; margin-bottom:0px">
 
-        <?php
-        include 'connecttoDB.php';
-        $result = mysqli_query($conn, "SELECT * FROM tickets");
+        <div style=" margin: auto; ">
+            <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" style="font-size:25px;">
+                <thead>
+                    <tr>
+                        <th class="th-sm">Number</th>
+                        <th class="th-sm">Title</th>
+                        <th class="th-sm">Sent by</th>
+                        <th class="th-sm">Department</th>
+                        <th class="th-sm">Status</th>
+                        <th class="th-sm">Sent to</th>
+                        <th class="th-sm">Priority</th>
+                        <th class="th-sm">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-
-        while ($row = mysqli_fetch_array($result)) {
-
-            echo '
-  <div >
-  <a href="adminCard.php?id=' . $row['num'] . '=">
-
-        <div scrollmenu  data-ride="carousel" style=" float:left; background: #000000;height: 400px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">sent by: ' . $row['sentBy'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">to: ' . $row['department'] . ' Department</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">Status: ' . $row['status'] . '</h2>
-
-        </div>
-
-        </a>
-
-</div>
+                    <?php
+                    include 'connecttoDB.php';
+                    $result = mysqli_query($conn, "SELECT * FROM tickets ");
 
 
+                    while ($row = mysqli_fetch_array($result)) {
+
+                        echo '
+                <tr>
+                    <td>' . $row['num'] . '</td>
+
+                    <td>
+                    <a href="adminCard.php?id=' . $row['num'] . '" style="color:#f09329;">
+                    ' . $row['title'] . '
+                    </a>
+                    </td>
+
+                    <td>' . $row['sentBy'] . '</td>
+                    <td>' . $row['department'] . '</td>
+                    <td>' . $row['status'] . '</td>
+                    <td>' . $row['sentTo'] . '</td>
+                    <td>' . $row['priority'] . '</td>
+                    <td>' . $row['dt'] . '</td>
+                </tr>
             ';
-        }
-
-        ?>
-
-    </section>
-    <div class="container" style="background-color: #f09329 ; max-width:unset ; height:50px">
-        <h2 class="text-uppercase text-center text-white" style="margin-bottom:0px; padding-top:20px;">REDIRECTED tickets</h2>
-    </div>
-    <section class="scroll" id="about" class="bg-primary text-white mb-0" style="background-color: #f09329 ; height:700px; margin-bottom:0px">
-
-        <?php
-        include 'connecttoDB.php';
-        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE redirected = 'true'");
-
-
-        while ($row = mysqli_fetch_array($result)) {
-
-            echo '
-  <div >
-  <a href="adminCard.php?id=' . $row['num'] . '=">
-
-        <div scrollmenu  data-ride="carousel" style=" float:left; background: #000000;height: 400px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">sent by: ' . $row['sentBy'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">to: ' . $row['department'] . ' Department</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">redirected by: ' . $row['redirectedBy'] . '</h2>
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
-
-        </a>
-
-</div>
-
-
-            ';
-        }
-
-        ?>
     </section>
+
 
 
     <footer class="footer text-center"></footer>
