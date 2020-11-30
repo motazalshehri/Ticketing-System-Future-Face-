@@ -189,75 +189,105 @@ echo '</script>';
         </div>
     </section>
 
-    <div class="container" style="background-color: #f09329 ; max-width:unset ;  height:50px">
+    <div class="container" style="background-color: #ffffff ; max-width:unset ;  height:50px">
         <h1 class="text-uppercase text-center text-" style="margin-bottom:0px; padding-top:10px;" >my tickets</h1>
     </div>
-    <section id="about" class="bg-primary text-white mb-0 scroll" style="float:left; height:600px ">
+    <section id="about" class="bg-primary text-white mb-0 scroll" style="float:left; height:auto; background-color: #ffffff !important; ">
+
+    <div style=" margin: auto; ">
+            <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" style="font-size:25px;">
+                <thead>
+                    <tr>
+                        <th class="th-sm">Number</th>
+                        <th class="th-sm">Title</th>
+                        <th class="th-sm">Department</th>
+                        <th class="th-sm">Status</th>
+                        <th class="th-sm">Sent to</th>
+                        <th class="th-sm">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <?php
+                    include 'connecttoDB.php';
+                    $result = mysqli_query($conn, "SELECT * FROM tickets WHERE sentBy = '" . $_SESSION['name'] . "'");
 
 
-        <?php
-        include 'connecttoDB.php';
-        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE sentBy = '" . $_SESSION['name'] . "'");
+                    while ($row = mysqli_fetch_array($result)) {
 
+                        echo '
+                <tr>
+                    <td>' . $row['num'] . '</td>
 
-        while ($row = mysqli_fetch_array($result)) {
+                    <td>
+                    <a href="adminCard.php?id=' . $row['num'] . '" style="color:#f09329;">
+                    ' . $row['title'] . '
+                    </a>
+                    </td>
 
-            echo '
-  <div >
-  <a href="userCard.php?id=' . $row['num'] . '=">
-
-        <div scrollmenu  data-ride="carousel" style=" float:left; background: #000000;height: 300px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">to: ' . $row['department'] . ' Department</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">Status: ' . $row['status'] . '</h2>
-        </div>
-
-        </a>
-
-</div>
-
-
+                    <td>' . $row['department'] . '</td>
+                    <td>' . $row['status'] . '</td>
+                    <td>' . $row['sentTo'] . '</td>
+                    <td>' . $row['dt'] . '</td>
+                </tr>
             ';
-        }
-
-        ?>
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <div class="container">
         <h1 class="text-uppercase text-center text-secondary mb-0">tickets To Me</h1>
     </div>
 
-    <section id="contact" class="scroll background-color:white" style="  height:600px">
+    <section id="contact" class="scroll background-color:white" style="  height:auto">
 
-        <?php
-        include 'connecttoDB.php';
-        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE sentTo = '" . $_SESSION['name'] . "'");
+    <div style=" margin: auto; ">
+            <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" style="font-size:25px;">
+                <thead>
+                    <tr>
+                        <th class="th-sm">Number</th>
+                        <th class="th-sm">Title</th>
+                        <th class="th-sm">Department</th>
+                        <th class="th-sm">Status</th>
+                        <th class="th-sm">Sent to</th>
+                        <th class="th-sm">Priority</th>
+                        <th class="th-sm">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-
-        while ($row = mysqli_fetch_array($result)) {
-
-            echo '
-  <div >
-  <a href="userCard.php?id=' . $row['num'] . '=">
-
-        <div scrollmenu  data-ride="carousel" style=" float:right; background: #000000;height: 300px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">to: ' . $row['department'] . ' Department</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">Status: ' . $row['status'] . '</h2>
-        </div>
-
-        </a>
-
-</div>
+                    <?php
+                    include 'connecttoDB.php';
+                    $result = mysqli_query($conn, "SELECT * FROM tickets WHERE sentTo = '" . $_SESSION['name'] . "'");
 
 
+                    while ($row = mysqli_fetch_array($result)) {
+
+                        echo '
+                <tr>
+                    <td>' . $row['num'] . '</td>
+
+                    <td>
+                    <a href="adminCard.php?id=' . $row['num'] . '" style="color:#f09329;">
+                    ' . $row['title'] . '
+                    </a>
+                    </td>
+
+                    <td>' . $row['department'] . '</td>
+                    <td>' . $row['status'] . '</td>
+                    <td>' . $row['sentTo'] . '</td>
+                    <td>' . $row['priority'] . '</td>
+                    <td>' . $row['dt'] . '</td>
+                </tr>
             ';
-        }
-
-        ?>
-        <div></div>
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </section>
 
 
