@@ -8,29 +8,26 @@ if ((!isset($_SESSION['name']))) {
         echo 'alert("' . $_GET['sent'] . '");';
     }
     if (isset($_GET['completed'])) {
-        echo 'alert("' . $_GET['sent'] . '");';
+        echo 'alert("' . $_GET['completed'] . '");';
     }
     if (isset($_GET['redirected'])) {
-        echo 'alert("' . $_GET['sent'] . '");';
+        echo 'alert("' . $_GET['redirected'] . '");';
     }
 }
 echo '</script>';
 ?>
+<!DOCTYPE html>
+<html>
 
 <head>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>card page</title>
+    <title>User home page</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="orange.css">
-
 
     <style>
         section.scroll {
@@ -113,20 +110,18 @@ echo '</script>';
         input::-webkit-input-placeholder {
             color: #999;
         }
-
-        
     </style>
 </head>
-<hr>
+
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
-        <div class="container"><a class="navbar-brand js-scroll-trigger" href="user homepage.php" style="background-color: transparent;"><img src="ff.png" alt="Future Face" style="height: 75px; width:150px;"></a>
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top" style="background-color: transparent;"><img src="ff.png" alt="Future Face" style="height: 75px; width:150px;"></a>
             <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">new ticket</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">my tickets</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">tickets to me</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio" style="background-color: transparent;">new ticket</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" style="background-color: transparent;">my tickets</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact" style="background-color: transparent;">tickets to me</a></li>
                     <form action="searchpageuser.php" method="post">
                         
                         <input type="search" id="search" name="term" placeholder="Search">
@@ -136,7 +131,8 @@ echo '</script>';
 
 
 
-        <li class="dropdown" class="nav-item mx-0 mx-lg-1"  style=" background-color:transparent color:black;" ><a   class="nav-link py-3 px-0 px-lg-3 "  style=" margin-bottom:5px; color:#fff;"  class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION['name'];?> <span class="caret"></span></a>
+        <li class="dropdown" class="nav-item mx-0 mx-lg-1"  style=" background-color:transparent color:black;" ><a   class="nav-link py-3 px-0 px-lg-3 "  style=" margin-bottom:5px; color:#fff;"  class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION['name'];
+        ;?> <span class="caret"></span></a>
         <ul style=" background-color:343432;" class="dropdown-menu">
 
           <li><a href="#"><a href="logout.php" style="background-color: transparent;">
@@ -150,53 +146,21 @@ echo '</script>';
         </div>
     </nav>
 
-    <div class="container" style="padding-top: 120px;">
-
-        <?php
-        include 'connecttoDB.php';
-        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE num='$_GET[id]' ");
 
 
-        while ($row = mysqli_fetch_array($result)) {
 
-            echo '
-            <div style="text-align: center;">
-            <div>
-                <h5 style="font-size: 1.5rem;">#' . $row['num'] . ' - ' . $row['title'] . '</h5>
-                <h5 style="font-size: 1.5rem;">To the ' . $row['department'] . ' department</h5>
-                </div>
-            <div>
-                <p>' . $row['complaint'] . '</p>
-            </div>
-            <div>
-                <h5 style="font-size: 1.5rem;">status: '.$row['status'].'</h5>
-            </div>
-            <form method="POST" action="CompleteTicket.php">
-
-                <input name="id" type= "hidden" value='.$row['num'].'>
-
-                <button class="btn btn-primary" type="button" onClick="window.history.back();" style="margin: 10px 40px;height: 46px;">Back</button>
-                <button class="btn btn-primary" type="button" style="margin: 10px 30px;height: 46px;"><a href="edit.php?id=123">Edit</a>
-                </button> 
-
-                <button class="btn btn-primary" type="submit" style="margin: 10px 30px;height: 46px;">Completed</button> 
-
-            </form>
-            </div>
-        </div>
-            ';
-        }
-
-        ?>
-
-    </div>
-
-    <br><br>
     <footer class="footer text-center"></footer>
     <div class="copyright py-4 text-center text-white">
-        <div class="container"><small>Copyright ©&nbsp;future face 2020</small></div>
+        <div class="container"><small>Copyright ©️&nbsp;future face 2020</small></div>
     </div>
+    <div class="d-lg-none scroll-to-top position-fixed rounded"><a class="d-block js-scroll-trigger text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
     </div>
 
-    </article>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="assets/js/freelancer.js"></script>
 </body>
+
+</html>
