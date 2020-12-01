@@ -102,101 +102,113 @@ if ((!isset($_SESSION['name']))) {
         input::-webkit-input-placeholder {
             color: #999;
         }
-
-
     </style>
 
 </head>
 
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
-<div class="container"><a class="navbar-brand js-scroll-trigger" href="admin home page.php" style="background-color: transparent;">
-                <img src="ff.png"  alt="Future Face" style="height: 75px; width:150px;">
-            </a>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1"></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="admin home page.php#portfolio" style="background-color: transparent;">Tickets</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="admin home page.php#about" style="background-color: transparent;">redirected tickets</a></li>
-                    <form action="searchpage.php" method="post">
-                        
-                        <input type="search" id="search" name="term" placeholder="Search">
-                    </form>
-                  
-                    <li class="nav-item mx-0 mx-lg-1">
+    <div class="container"><a class="navbar-brand js-scroll-trigger" href="admin home page.php" style="background-color: transparent;">
+            <img src="ff.png" alt="Future Face" style="height: 75px; width:150px;">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-lg-1"></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="admin home page.php#portfolio" style="background-color: transparent;">Tickets</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="admin home page.php#about" style="background-color: transparent;">redirected tickets</a></li>
+                <form action="searchpage.php" method="post">
+
+                    <input type="search" id="search" name="term" placeholder="Search">
+                </form>
+
+                <li class="nav-item mx-0 mx-lg-1">
 
 
 
-        <li class="dropdown" class="nav-item mx-0 mx-lg-1"  style=" background-color:transparent color:black;" ><a   class="nav-link py-3 px-0 px-lg-3 "  style=" margin-bottom:5px; color:#fff;"  class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION['name'];
-        ;?> <span class="caret"></span></a>
-        <ul style=" background-color:343432;" class="dropdown-menu">
-        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " style="background-color: transparent;" href="registerpage.php"> Register an account</a></li>
+                <li class="dropdown" class="nav-item mx-0 mx-lg-1" style=" background-color:transparent color:black;"><a class="nav-link py-3 px-0 px-lg-3 " style=" margin-bottom:5px; color:#fff;" class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION['name'];; ?> <span class="caret"></span></a>
+                    <ul style=" background-color:343432;" class="dropdown-menu">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 " style="background-color: transparent;" href="registerpage.php"> Register an account</a></li>
 
-          <li><a href="#"><a href="logout.php" style="background-color: transparent;">
-                            <button type="button" style="margin-left: 55px;" class="btn btn-danger">Logout</button></a>
-</a></li>
-        </ul>        
+                        <li><a href="#"><a href="logout.php" style="background-color: transparent;">
+                                    <button type="button" style="margin-left: 55px;" class="btn btn-danger">Logout</button></a>
+                            </a></li>
+                    </ul>
 
-                    </li>
+                </li>
 
-                    </li>
-                </ul>
-            </div>
+                </li>
+            </ul>
         </div>
-    </nav>
-    <header class="masthead bg-primary text-white text-center">
-        <div class="container">
-        
-            <h1>Ticketing System</h1>
-            <div id="display"></div>
-           
-
-            <h2 class="font-weight-light mb-0"></h2>
-        </div>
-
-        </header>
-        
+    </div>
+</nav>
+<header class="masthead bg-primary text-white text-center">
     <div class="container">
-        
-        <h1 class="text-uppercase text-center text-secondary" style="padding-top:20px;">tickets</h1>
+
+        <h1>Ticketing System</h1>
+        <div id="display"></div>
+
+
+        <h2 class="font-weight-light mb-0"></h2>
     </div>
 
-    <section class="scroll" id="portfolio" class="portfolio" style="height:600px; margin-bottom:0px">
-    <a href="admin home page.php" > <svg style="position: absolute; top:450px; left: 25px; " width="8em" height="4em" viewBox="0 0 16 16" class="bi bi-arrow-left-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z"/>
-</svg>
-    </a>
-    <?php
-    if(isset($_POST['term']))
-    
-    $key=$_POST["term"];
-        include 'connecttoDB.php';
+</header>
 
-        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE num  LIKE  '%$key%' OR title LIKE '%$key%' OR department LIKE '%$key%' ");
-        if(mysqli_num_rows($result) > 0){
-        while ($row = mysqli_fetch_array($result)) {
+<div class="container">
 
-            echo '
-  <div >
-  <a href="adminCard.php?id=' . $row['num'] . '=">
-
-        <div scrollmenu  data-ride="carousel" style=" float:left; background: #000000;height: 300px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">sent by: ' . $row['sentBy'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">to: ' . $row['department'] . ' Department</h2>
-        </div>
-
-        </a>
-
+    <h1 class="text-uppercase text-center text-secondary" style="padding-top:20px;">tickets</h1>
 </div>
 
+<section class="scroll" id="portfolio" class="portfolio" style="height:auto; margin-bottom:0px">
 
-            ';
-        }
-    } else echo "<h1 style='width:500px; margin: 0 auto;text-align: center;'> No Result</h1>";
+    <div style=" margin: auto; ">
+        <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" style="font-size:25px;">
+            <thead>
+                <tr>
+                    <th class="th-sm">Number</th>
+                    <th class="th-sm">Title</th>
+                    <th class="th-sm">Sent by</th>
+                    <th class="th-sm">Department</th>
+                    <th class="th-sm">Status</th>
+                    <th class="th-sm">Sent to</th>
+                    <th class="th-sm">Priority</th>
+                    <th class="th-sm">Date</th>
+                </tr>
+            </thead>
+            <tbody>
 
-        ?>
+                <?php
+                include 'connecttoDB.php';
 
-    </section>
+                if (isset($_POST['term']))
+                $key = $_POST["term"];
+
+                $result = mysqli_query($conn, "SELECT * FROM tickets WHERE num LIKE '%$key%' OR title LIKE '%$key%' OR department LIKE '%$key%' ");
+
+
+                while ($row = mysqli_fetch_array($result)) {
+
+                    echo '
+        <tr>
+            <td>' . $row['num'] . '</td>
+
+            <td>
+            <a href="adminCard.php?id=' . $row['num'] . '" style="color:#f09329;">
+            ' . $row['title'] . '
+            </a>
+            </td>
+
+            <td>' . $row['sentBy'] . '</td>
+            <td>' . $row['department'] . '</td>
+            <td>' . $row['status'] . '</td>
+            <td>' . $row['sentTo'] . '</td>
+            <td>' . $row['priority'] . '</td>
+            <td>' . $row['dt'] . '</td>
+        </tr>
+    ';
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+</section>
 
 </body>

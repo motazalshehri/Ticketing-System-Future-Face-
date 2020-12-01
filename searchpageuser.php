@@ -151,43 +151,57 @@ if ((!isset($_SESSION['name']))) {
             <h1 class="text-uppercase text-center text-secondary" style="padding-top:20px;"> My tickets</h1>
         </div>
 
-        <section class="scroll" id="portfolio" class="portfolio" style="height:600px; margin-bottom:0px">
-            <a href="user homepage.php"> <svg style="position: absolute; top:450px; left: 25px; " width="8em" height="4em" viewBox="0 0 16 16" class="bi bi-arrow-left-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z" />
-                </svg>
-            </a>
-            <?php
-            if (isset($_POST['term']))
+        <section id="contact" class="scroll background-color:white" style="  height:auto">
 
-                $key = $_POST["term"];
-            include 'connecttoDB.php';
+            <div style=" margin: auto; ">
+                <table id="dtOrderExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" style="font-size:25px;">
+                    <thead>
+                        <tr>
+                            <th class="th-sm">Number</th>
+                            <th class="th-sm">Title</th>
+                            <th class="th-sm">Department</th>
+                            <th class="th-sm">Status</th>
+                            <th class="th-sm">Sent to</th>
+                            <th class="th-sm">Priority</th>
+                            <th class="th-sm">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            $result = mysqli_query($conn, "SELECT * FROM tickets WHERE sentBy ='" . $_SESSION['name'] . "' AND num LIKE '%$key%' OR title LIKE '%$key%' OR department LIKE '%$key%' ");
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
+                        <?php
+                        include 'connecttoDB.php';
 
-                    echo '
-  <div >
-  <a href="userCard.php?id=' . $row['num'] . '=">
+                        if (isset($_POST['term']))
+                        $key = $_POST["term"];
 
-        <div scrollmenu  data-ride="carousel" style=" float:left; background: #000000;height: 300px;width: 350px;margin: 50px 65px;padding: 30px 0px;border-radius: 50px;">
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding: 0px;text-align: center;padding-bottom: 30px;font-size: 30px;">#' . $row['num'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">' . $row['title'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">sent by: ' . $row['sentBy'] . '</h2>
-            <h2 class="text-uppercase text-center text-white" style="margin: 0px;padding:0px;text-align: center;padding-bottom: 30px;font-size: 20px;">to: ' . $row['department'] . ' Department</h2>
-        </div>
-
-        </a>
-
-</div>
+                        $result = mysqli_query($conn, "SELECT * FROM tickets WHERE sentBy ='" . $_SESSION['name'] . "' AND num LIKE '%$key%' OR title LIKE '%$key%' OR department LIKE '%$key%'");
 
 
-            ';
-                }
-            } else echo "<h1 style='width:500px; margin: 0 auto;text-align: center;'> No Result</h1>";
+                        while ($row = mysqli_fetch_array($result)) {
 
-            ?>
+                            echo '
+            <tr>
+                <td>' . $row['num'] . '</td>
 
+                <td>
+                <a href="adminCard.php?id=' . $row['num'] . '" style="color:#f09329;">
+                ' . $row['title'] . '
+                </a>
+                </td>
+
+                <td>' . $row['department'] . '</td>
+                <td>' . $row['status'] . '</td>
+                <td>' . $row['sentTo'] . '</td>
+                <td>' . $row['priority'] . '</td>
+                <td>' . $row['dt'] . '</td>
+            </tr>
+        ';
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </section>
+
 
     </body>
