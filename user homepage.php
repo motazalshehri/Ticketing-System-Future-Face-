@@ -220,7 +220,7 @@ echo '</script>';
                     <td>' . $row['num'] . '</td>
 
                     <td>
-                    <a href="adminCard.php?id=' . $row['num'] . '" style="color:#f09329;">
+                    <a href="userCard.php?id=' . $row['num'] . '" style="color:#f09329;">
                     ' . $row['title'] . '
                     </a>
                     </td>
@@ -271,7 +271,7 @@ echo '</script>';
                     <td>' . $row['num'] . '</td>
 
                     <td>
-                    <a href="adminCard.php?id=' . $row['num'] . '" style="color:#f09329;">
+                    <a href="userCard.php?id=' . $row['num'] . '" style="color:#f09329;">
                     ' . $row['title'] . '
                     </a>
                     </td>

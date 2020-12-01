@@ -115,13 +115,13 @@ echo '</script>';
 
 <body id="page-top">
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
-        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top" style="background-color: transparent;"><img src="ff.png" alt="Future Face" style="height: 75px; width:150px;"></a>
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="user homepage.php" style="background-color: transparent;"><img src="ff.png" alt="Future Face" style="height: 75px; width:150px;"></a>
             <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio" style="background-color: transparent;">new ticket</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about" style="background-color: transparent;">my tickets</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact" style="background-color: transparent;">tickets to me</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">new ticket</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">my tickets</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">tickets to me</a></li>
                     <form action="searchpageuser.php" method="post">
                         
                         <input type="search" id="search" name="term" placeholder="Search">
@@ -145,6 +145,77 @@ echo '</script>';
             </div>
         </div>
     </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+   <section id="portfolio" class="portfolio">
+        <div class="container">
+            <hr>
+            <hr>
+            <h2 class="text-uppercase text-center text-secondary">Edit ticket&nbsp;</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form id="contactForm-1" name="sentMessage" novalidate="novalidate" method="POST" action="editdata.php">
+                    <div class="control-group" style="margin:20px 0px">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label></label>
+                            <input class="form-control" type="text" id="name-1" required="" placeholder="Title" name="title" maxlength="30" >
+                            <small class="form-text text-danger help-block"></small>
+                        </div>
+
+                        <select id="departments" name="department" class="form-control form-control-lg" required style="padding: 0px;">
+                            <option value="" disabled selected>Department</option>
+                            <option value="IT">IT</option>
+                            <option value="Accounting">Accounting</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="HR">HR</option>
+                        </select>
+
+                    </div>
+                    <div class="control-group"></div>
+                    <div class="control-group"></div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-5 pb-2">
+                            <textarea class="form-control" id="message-1" required="" placeholder="Complaint" name="complaint" rows="5"></textarea>
+                            <small class="form-text text-danger help-block"></small></div>
+                    </div>
+                    <div id="success-1"></div>
+                    <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton-1" type="submit">Send</button></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
