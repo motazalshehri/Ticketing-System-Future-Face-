@@ -13,6 +13,9 @@ if ((!isset($_SESSION['name']))) {
     if (isset($_GET['redirected'])) {
         echo 'alert("' . $_GET['redirected'] . '");';
     }
+    if(isset($_GET['id'])){
+        $id = $_GET['id']; //sanitize as your own wish
+      }
 }
 echo '</script>';
 ?>

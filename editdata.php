@@ -5,7 +5,7 @@ include('connecttoDB.php');
 
 
 $title = $_POST["title"];
-
+$id = $_POST["id"];
 $department = $_POST["department"];
 $complaint = $_POST["complaint"];
    $query = "UPDATE tickets SET  title = '$title', department = '$department', complaint='$complaint',  WHERE num='$_GET[id]' ";
