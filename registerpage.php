@@ -11,11 +11,11 @@ if ((!isset($_SESSION['name']))) {
 echo '</script>';
 ?>
 <head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<meta charset="utf-8">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Admin home page</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -107,22 +107,22 @@ echo '</script>';
             color: #999;
         }
     </style>
+
 </head>
 
-<body>
+<body id="page-top">
 
     <hr>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
-<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
-<div class="container"><a class="navbar-brand js-scroll-trigger" href="admin home page.php" style="background-color: transparent;">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
+    <div class="container"><a class="navbar-brand js-scroll-trigger" href="admin home page.php" style="background-color: transparent;">
                 <img src="ff.png"  alt="Future Face" style="height: 75px; width:150px;">
             </a>
+            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="admin home page.php#portfolio" style="background-color: transparent;">Tickets</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="admin home page.php#about" style="background-color: transparent;">redirected tickets</a></li>
                     <form action="searchpage.php" method="post">
                         
                         <input type="search" id="search" name="term" placeholder="Search">
@@ -142,17 +142,18 @@ echo '</script>';
 </a></li>
         </ul>        
 
-                    </li>
-
-                    </li>
-                </ul>
+                
             </div>
         </div>
     </nav>
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container">
+            <h1>Register an account </h1>
+            <div id="display"></div>
 
-<div class="container" style="padding-top: 120px;">
-
-
+            <h2 class="font-weight-light mb-0"></h2>
+        </div>
+    </header>
 
 
 <div class="card bg-light">
@@ -244,11 +245,15 @@ if(mysqli_query($conn,$sql)){
 ?>
 
 <br><br>
+
 <footer class="footer text-center"></footer>
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright ©&nbsp;future face 2020</small></div>
     </div>
-</div>
-
-</article>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="assets/js/freelancer.js"></script>
 </body>
+
+</html>

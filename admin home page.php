@@ -150,7 +150,6 @@ echo '</script>';
                 <ul class="nav navbar-nav ml-auto">
 
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="background-color: transparent;" href="#portfolio">Tickets</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" style="background-color: transparent;" href="#about">redirected tickets</a></li>
                     <form action="searchpage.php" method="post">
 
                         <input type="search" id="search" name="term" placeholder="Search">
