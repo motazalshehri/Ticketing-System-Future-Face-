@@ -13,9 +13,9 @@ if ((!isset($_SESSION['name']))) {
     if (isset($_GET['redirected'])) {
         echo 'alert("' . $_GET['redirected'] . '");';
     }
-    if(isset($_GET['id'])){
+    if (isset($_GET['id'])) {
         $id = $_GET['id']; //sanitize as your own wish
-      }
+    }
 }
 echo '</script>';
 ?>
@@ -122,26 +122,24 @@ echo '</script>';
             <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">new ticket</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">new ticket</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">my tickets</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="user homepage.php" style="background-color: transparent;">tickets to me</a></li>
                     <form action="searchpageuser.php" method="post">
-                        
+
                         <input type="search" id="search" name="term" placeholder="Search">
                     </form>
-                  
+
                     <li class="nav-item mx-0 mx-lg-1">
 
 
 
-        <li class="dropdown" class="nav-item mx-0 mx-lg-1"  style=" background-color:transparent color:black;" ><a   class="nav-link py-3 px-0 px-lg-3 "  style=" margin-bottom:5px; color:#fff;"  class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION['name'];
-        ;?> <span class="caret"></span></a>
-        <ul style=" background-color:343432;" class="dropdown-menu">
-
-          <li><a href="#"><a href="logout.php" style="background-color: transparent;">
-                            <button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a>
-</a></li>
-        </ul>        
+                    <li class="dropdown" class="nav-item mx-0 mx-lg-1" style=" background-color:transparent color:black;"><a class="nav-link py-3 px-0 px-lg-3 " style=" margin-bottom:5px; color:#fff;" class="dropdown-toggle" data-toggle="dropdown" href="#"> <?php echo $_SESSION['name'];; ?> <span class="caret"></span></a>
+                        <ul style=" background-color:343432;" class="dropdown-menu">
+                            <li><a href="#"><a href="logout.php" style="background-color: transparent;">
+                                        <button type="button" style="margin-left: 35px;" class="btn btn-danger">Logout</button></a>
+                                </a></li>
+                        </ul>
 
                     </li>
                 </ul>
@@ -149,21 +147,7 @@ echo '</script>';
         </div>
     </nav>
 
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-   <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio">
         <div class="container">
             <hr>
             <hr>
@@ -172,10 +156,11 @@ echo '</script>';
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <form id="contactForm-1" name="sentMessage" novalidate="novalidate" method="POST" action="editdata.php">
+                    <?php echo " <input name='id' type= 'hidden' value='".$_GET['id']."'>"; ?>
                     <div class="control-group" style="margin:20px 0px">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label></label>
-                            <input class="form-control" type="text" id="name-1" required="" placeholder="Title" name="title" maxlength="30" >
+                            <input class="form-control" type="text" id="name-1" required="" placeholder="Title" name="title" maxlength="30">
                             <small class="form-text text-danger help-block"></small>
                         </div>
 
@@ -201,25 +186,6 @@ echo '</script>';
             </div>
         </div>
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
