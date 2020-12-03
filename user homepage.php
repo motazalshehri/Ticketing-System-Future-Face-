@@ -13,6 +13,9 @@ if ((!isset($_SESSION['name']))) {
     if (isset($_GET['redirected'])) {
         echo 'alert("' . $_GET['redirected'] . '");';
     }
+    if (isset($_GET['edited'])) {
+        echo 'alert("' . $_GET['edited'] . '");';
+    }
 }
 echo '</script>';
 ?>

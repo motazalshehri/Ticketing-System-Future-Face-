@@ -176,7 +176,7 @@ echo '</script>';
                 <input name="id" type= "hidden" value='.$row['num'].'>
 
                 <button class="btn btn-primary" type="button" onClick="window.history.back();" style="margin: 10px 40px;height: 46px;">Back</button>
-                <button class="btn btn-primary" type="button" style="margin: 10px 30px;height: 46px;" ><a  href="edit.php?id=' . $row['num'] . '"> Edit</a> </button> 
+                <button class="btn btn-primary" type="button" style="margin: 10px 30px;height: 46px;" ><a style="color:white;" href="edit.php?id=' . $row['num'] . '"> Edit</a> </button> 
 
                 <button class="btn btn-primary" type="submit" style="margin: 10px 30px;height: 46px;">Completed</button> 
 
